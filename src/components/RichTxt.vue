@@ -1,60 +1,59 @@
 <template>
 
-  <div  class="ql-container ql-snow">
 
-    <el-row>
-      <el-button>默认按钮</el-button>
-      <el-button type="primary">主要按钮</el-button>
-      <el-button type="success">成功按钮</el-button>
-      <el-button type="info">信息按钮</el-button>
-      <el-button type="warning">警告按钮</el-button>
-      <el-button type="danger">危险按钮</el-button>
-    </el-row>
+    <div  id="app" class="ql-container ql-snow">
+      <el-button type="primary" @click="addContentNet()">添加内容</el-button>
+<!--      <quill-editor v-model="ruleForm.content"-->
+<!--                    :options="editorOption"-->
+<!--                    @blur="onEditorBlur($event)"-->
+<!--                    @focus="onEditorFocus($event)"-->
+<!--                    @change="onEditorChange($event)"-->
+<!--      style="height: 100%">-->
+<!--      </quill-editor>-->
 
-    <quill-editor v-model="ruleForm.content"
-                  :options="editorOption"
-                  @blur="onEditorBlur($event)"
-                  @focus="onEditorFocus($event)"
-                  @change="onEditorChange($event)">
-    </quill-editor>
-  </div>
+      <vue-ueditor-wrap v-model="ruleForm.content" :config="myConfig"></vue-ueditor-wrap>
+    </div>
+
 
 </template>
 
 <script >
 
+  import { request } from '../network/netRequest'
+
+
   export default {
     name: "Rich-Txt",
-    // components: {quillEditor},
     data () {
       return {
         ruleForm:{
-          content:'fsdfs'
+          content:''
         },
-        content: null,
-        editorOption: {
-          modules: {
-            toolbar: [
-              ["bold", "italic", "underline", "strike"], // 加粗 斜体 下划线 删除线
-              ["blockquote", "code-block"], // 引用  代码块
-              [{ header: 1 }, { header: 2 }], // 1、2 级标题
-              [{ list: "ordered" }, { list: "bullet" }], // 有序、无序列表
-              [{ script: "sub" }, { script: "super" }], // 上标/下标
-              [{ indent: "-1" }, { indent: "+1" }], // 缩进
-              // [{'direction': 'rtl'}],                         // 文本方向
-              [{ size: ["small", false, "large", "huge"] }], // 字体大小
-              [{ header: [1, 2, 3, 4, 5, 6, false] }], // 标题
-              [{ color: [] }, { background: [] }], // 字体颜色、字体背景颜色
-              [{ font: [] }], // 字体种类
-              [{ align: [] }], // 对齐方式
-              ["clean"], // 清除文本格式
-              ["link", "image", "video"] // 链接、图片、视频
-            ], //工具菜单栏配置
-          },
-          placeholder: '请在这里添加产品描述', //提示
-          readyOnly: false, //是否只读
-          theme: 'snow', //主题 snow/bubble
-          syntax: true, //语法检测
+        myConfig: {
+          // 编辑器不自动被内容撑高
+          autoHeightEnabled: false,
+          // 初始容器高度
+          initialFrameHeight: 240,
+          // 初始容器宽度
+          initialFrameWidth: '100%',
+          // 上传文件接口（这个地址是我为了方便各位体验文件上传功能搭建的临时接口，请勿在生产环境使用！！！部署在国外的服务器，如果无法访问，请自备梯子）
+          serverUrl: '/api/content-manage/ueditor/config',
+          // serverUrl: 'http://localhost:10001/ueditor/config',
+          // UEditor 资源文件的存放路径，如果你使用的是 vue-cli 生成的项目，通常不需要设置该选项，vue-ueditor-wrap 会自动处理常见的情况，如果需要特殊配置，参考下方的常见问题2
+          UEDITOR_HOME_URL: '/UE/',
+          toolbars: [[
+            'fullscreen', 'source', '|', 'undo', 'redo', '|',
+            'bold', 'italic', 'underline', 'fontborder', 'strikethrough', 'superscript', 'subscript', 'removeformat', 'formatmatch', 'autotypeset', 'blockquote', 'pasteplain', '|', 'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist', 'selectall', 'cleardoc', '|',
+            'rowspacingtop', 'rowspacingbottom', 'lineheight', '|',
+            'customstyle', 'paragraph', 'fontfamily', 'fontsize', '|',
+            'directionalityltr', 'directionalityrtl', 'indent', '|',
+            'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', '|', 'touppercase', 'tolowercase', '|',
+            'link', 'unlink', 'anchor', '|', 'imagenone', 'imageleft', 'imageright', 'imagecenter', '|',
+            'simpleupload', /*'insertimage', */'emotion', 'scrawl', 'insertvideo', 'music', 'attachment', 'map', /*'gmap',*/ 'insertframe', /*'insertcode', *//*'webapp',*/ 'pagebreak', 'template', 'background', '|',
+            'horizontal', 'date', 'time', 'spechars', /*'snapscreen', */'wordimage', '|',
+            'inserttable', 'deletetable', 'insertparagraphbeforetable', 'insertrow', 'deleterow', 'insertcol', 'deletecol', 'mergecells', 'mergeright', 'mergedown', 'splittocells', 'splittorows', 'splittocols', 'charts', '|',
+            'print', 'preview', 'searchreplace', 'drafts'/*, 'help'*/
+          ]]
         }
       }
     },
@@ -67,8 +66,22 @@
       onEditorReady(editor) {},
       // 值发生变化
       onEditorChange(editor) {
-        this.content = editor.html;
         console.log(editor);
+      },
+      //http 添加内容
+      addContentNet(){
+        var _this = this;
+        request({
+          url: '/api/content-manage/content/add',
+          method : 'post',
+          data : this.ruleForm,
+        }).then(function (response) {
+            _this.$message.success("添加成功")
+            _this.$emit("addSuccessed")
+        }).catch(function (error) {
+          window.alert("1111111111111111")
+          console.log(error);
+        });
       },
     },
     computed: {
@@ -81,4 +94,7 @@
 
 <style>
 
+  .ql-container {
+    height: 100%;
+  }
 </style>

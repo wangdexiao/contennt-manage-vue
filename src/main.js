@@ -17,9 +17,13 @@ import 'quill/dist/quill.snow.css'
 import 'quill/dist/quill.bubble.css'
 Vue.use(VueQuillEditor);
 
+//引入百度富文本
+import VueUeditorWrap from 'vue-ueditor-wrap'
+Vue.component('vue-ueditor-wrap', VueUeditorWrap)
+
 
 Vue.config.productionTip = false
-Vue.prototype.$axios = Axios;    // 全局变量
+// Vue.prototype.$axios = Axios;    // 全局变量
 
 
 new Vue({

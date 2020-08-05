@@ -1,6 +1,5 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
+  <div class="app">
     <rich-txt />
   </div>
 </template>
@@ -13,6 +12,10 @@
     name: 'RichText',
     components: {
       RichTxt
-    }
+    },
+
   }
 </script>
+<style scoped>
+
+</style>
