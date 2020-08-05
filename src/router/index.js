@@ -10,12 +10,18 @@ import RichText from '../views/RichText'
 Vue.use(VueRouter)
 
 const routes = [
-  //预览内容页面
+  //登录界面
   {
     path: '/login',
     component : login,
   },
-  //内容管理页面
+  //home 页
+  {
+    path: '/',
+    name: 'Home',
+    component: Home
+  },
+  // 内容管理页面
   {
     path: '/content-manage',
     name: 'ContentManage',
@@ -39,11 +45,11 @@ const routes = [
     props: (route) => ({ query: route.query.content })
   },
 
-
 ]
 
 const router = new VueRouter({
-  routes
+  routes,
+  mode: 'history'
 })
 
 export default router
