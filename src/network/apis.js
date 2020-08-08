@@ -37,3 +37,13 @@ export function addContent (data) {
     data : data,
   });
 }
+
+
+export function userLogout () {
+
+  return request({
+    url: '/logout',
+    method : 'post',
+    data:''
+  });
+}

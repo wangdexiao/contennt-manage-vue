@@ -1,12 +1,11 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Home from '../components/layout/Home.vue'
 import login from '../views/login'
 import ContentAdd from '../views/ContentAdd'
 import ContentPreview from '../views/ContentPreview'
-import ContentManage from '../components/ContentManage'
-import RichText from '../views/RichText'
-import Header from '../components/HomeHeader'
+import HomeHeader from '../components/layout/HomeHeader'
+import Header from '../components/layout/HomeHeader'
 
 Vue.use(VueRouter)
 
@@ -17,6 +16,10 @@ const routes = [
     component : login,
     props: (route) => ({ query: route.query.content })
   },
+  {
+    path: '/home-header',
+    component: HomeHeader
+  },
   // {
   //   path: '',
   //   redirect:"/"
@@ -26,34 +29,34 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home,
+    component: () => import('../components/layout/Home'),
     redirect: '/content-manage',
     children: [
       // 内容管理页面
       {
         path: 'content-manage',
         name: 'ContentManage',
-        component: ContentManage
+        component: () => import('../views/ContentManage')
       },
       //demo 富文本页面
       {
         path: 'rich-text',
         name: 'RichText',
-        component: RichText
+        component: () => import('../components/RichTxt')
       },
       //添加内容页面
       {
         path: 'content-add',
-        component : ContentAdd
+        component: () => import('../views/ContentAdd')
       },
       //预览内容页面
       {
         path: 'content-preview',
-        component : ContentPreview,
+        component: () => import('../views/ContentPreview'),
         props: (route) => ({ query: route.query.content })
       },
-
     ]
+
   },
 
 

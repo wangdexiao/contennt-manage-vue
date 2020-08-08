@@ -40,6 +40,7 @@
   import {
     queryContentNet,delContentNet
   } from '../network/apis'
+  import { userLogout } from '../network/apis'
   import axios from 'axios'
 
   export default {

@@ -13,9 +13,9 @@
 
 <script>
 
-import HomeHeader from '../components/HomeHeader'
-import HomeMain from '../components/HomeMain'
-import HomeSider from '../components/HomeSider'
+import HomeHeader from './HomeHeader'
+import HomeMain from './HomeMain'
+import HomeSider from './HomeSider'
 
 export default {
   name: 'Home',

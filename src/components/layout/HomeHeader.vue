@@ -14,14 +14,24 @@
 </template>
 
 <script>
+
+  import {userLogout} from '../../network/apis'
+
   export default {
     name: 'HomeHeader',
 
 
     methods: {
       handleCommand(command){
-        if(command === signout){
-          this.$message.info("退出登录")
+        if(command === 'signout'){
+          userLogout()
+          .then(res =>{
+            this.$message.info("退出成功")
+            this.$router.replace("/")
+          }).catch(err => {
+            this.$message.info("退出失败")
+          })
+
         }
       }
     }
