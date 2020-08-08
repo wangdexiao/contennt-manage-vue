@@ -22,14 +22,15 @@ module.exports = {
     requireModuleExtension: true// 启用 CSS modules for all css / pre-processor files.
   },
   devServer: {// 环境配置
-    host: 'localhost',
-    port: 8088,
+    disableHostCheck: true,
+    host: '192.168.1.100',
+    port: 8099,
     https: false,
     hotOnly: false,
     open: true, //配置自动启动浏览器
     proxy: {// 配置多个代理(配置一个 proxy: 'http://localhost:4000' )
       '/api': {
-        target: 'http://localhost:5555',
+        target: 'http://192.168.1.100:10001',
         ws: true,
         changeOrigin: true,
         pathRewrite: {'^/api' : ''}

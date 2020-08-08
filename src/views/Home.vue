@@ -1,24 +1,28 @@
 <template>
-      <el-container style="border: 1px solid #eee">
-        <header/>
-        <el-container>
-          <side/>
-          <main/>
-        </el-container>
-      </el-container>
+    <el-container style="border: 1px solid #eee">
+      <home-sider/>
+
+      <el-main>
+        <home-header/>
+        <home-main/>
+      </el-main>
+    </el-container>
+
 
 </template>
 
 <script>
 
-import Header from './HomeHeader'
-import Main from './HomeMain'
-import Side from './HomeSider'
+import HomeHeader from '../components/HomeHeader'
+import HomeMain from '../components/HomeMain'
+import HomeSider from '../components/HomeSider'
 
 export default {
   name: 'Home',
   components: {
-    Header,Side,Main
+    HomeMain,
+    HomeSider,
+    HomeHeader,
   },
   data(){
     return{
@@ -32,12 +36,22 @@ export default {
 </script>
 
 
-<style scoped>
-  .el-header, .el-footer {
+<style >
+  .el-header {
     background-color: #B3C0D1;
     color: #333;
+    line-height: 60px;
+  }
+
+  .el-aside {
+    color: #333;
+  }
+
+  .el-aside {
+    background-color: #D3DCE6;
+    color: #333;
     text-align: center;
-    line-height: 40px;
+    line-height: 200px;
   }
 
   .el-main {
@@ -46,6 +60,11 @@ export default {
     /*text-align: center;*/
     /*line-height: 160px;*/
     padding: 10px;
+  }
+
+  body > .el-container {
+    /*margin-bottom: 40px;*/
+    height: 100%;
   }
 
   .el-container:nth-child(5) .el-aside,
@@ -61,8 +80,5 @@ export default {
     background-color: #B3C0D1;
   }
 
-  body > .el-container {
-    /*margin-bottom: 40px;*/
-    height: 100%;
-  }
+  html, body ,.app{ margin:0; height:100%; }
 </style>

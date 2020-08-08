@@ -19,7 +19,7 @@
 
 <script >
 
-  import { request } from '../network/netRequest'
+  import { addContent } from '../network/apis'
 
 
   export default {
@@ -36,9 +36,8 @@
           initialFrameHeight: 240,
           // 初始容器宽度
           initialFrameWidth: '100%',
-          // 上传文件接口（这个地址是我为了方便各位体验文件上传功能搭建的临时接口，请勿在生产环境使用！！！部署在国外的服务器，如果无法访问，请自备梯子）
-          serverUrl: '/api/content-manage/ueditor/config',
-          // serverUrl: 'http://localhost:10001/ueditor/config',
+          // serverUrl: '/api/content-manage/ueditor/config',
+          serverUrl: '/api/ueditor/config',
           // UEditor 资源文件的存放路径，如果你使用的是 vue-cli 生成的项目，通常不需要设置该选项，vue-ueditor-wrap 会自动处理常见的情况，如果需要特殊配置，参考下方的常见问题2
           UEDITOR_HOME_URL: '/UE/',
           toolbars: [[
@@ -71,15 +70,10 @@
       //http 添加内容
       addContentNet(){
         var _this = this;
-        request({
-          url: '/api/content-manage/content/add',
-          method : 'post',
-          data : this.ruleForm,
-        }).then(function (response) {
+        addContent(this.ruleForm).then(function (response) {
             _this.$message.success("添加成功")
-            _this.$emit("addSuccessed")
+            _this.$router.replace("/content-manage")
         }).catch(function (error) {
-          window.alert("1111111111111111")
           console.log(error);
         });
       },
