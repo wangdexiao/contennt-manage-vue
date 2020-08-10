@@ -27,7 +27,7 @@
           userLogout()
           .then(res =>{
             this.$message.info("退出成功")
-            this.$router.replace("/")
+            this.$router.replace("/rich-text")
           }).catch(err => {
             this.$message.info("退出失败")
           })

@@ -65,7 +65,6 @@
       onEditorReady(editor) {},
       // 值发生变化
       onEditorChange(editor) {
-        console.log(editor);
       },
       //http 添加内容
       addContentNet(){

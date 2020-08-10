@@ -13,7 +13,6 @@ export function ssoRequest (config) {
     withCredentials:true,
     //转换请求数据，// 有qs 就不需要这个了,会自动添加 headers: { 'content-type': 'application/x-www-form-urlencoded' },
     transformRequest: data => {
-      console.log('请求参数' + JSON.stringify(data))
       return qs.stringify(data)
     }
   });
@@ -72,7 +71,9 @@ export function request (config) {
     baseURL : 'http://192.168.1.100:10001/',
     timeout : 500000000000,
     headers :{
-      'X-Requested-With' : 'XMLHttpRequest'
+      // 'X-Requested-With' : 'XMLHttpRequest',
+      // 'Content-Type': 'application/x-www-form-urlencoded'
+      // 'Accept':  '*/*'
     },
     withCredentials: true,
     //转换请求数据，// 有qs 就不需要这个了,会自动添加 headers: { 'content-type': 'application/x-www-form-urlencoded' },
@@ -100,9 +101,8 @@ export function request (config) {
     res => {
       let result = res.data
       if (result.code === 401) {
-        console.log(result.data)
-        // window.location.href = result.data
-        Router.replace("/login")
+        window.location.href = result.data
+        // Router.replace("/login")
         return
       }
 

@@ -38,7 +38,7 @@
 
 <script>
   import {
-    queryContentNet,delContentNet
+    queryContentNet,delContentNet,getRes1
   } from '../network/apis'
   import { userLogout } from '../network/apis'
   import axios from 'axios'
@@ -79,7 +79,6 @@
 
       // 处理操作编辑按钮
       handleQuery(index, row) {
-        console.log( row.content);
         this.$router.replace({
            path : "/content-preview",
            query : {
@@ -90,18 +89,22 @@
       },
       // 处理操作编辑按钮
       handleEdit(index, row) {
-        console.log(index, row);
       },
       // 处理操作删除按钮
       handleDelete(index, row) {
-        console.log(index+ "" + JSON.stringify(row))
         this.delContent(row.id)
       },
 
       //添加content 按钮点击事件
       addContent() {
         // this.$emit('routeAddContent',null)
-        this.$router.replace("/content-add")
+        // this.$router.replace("/content-add")
+        getRes1()
+        .then(res => {
+          this.$message.info("获取到资源" + res)
+        }).catch(error => {
+
+        })
       },
 
 
@@ -139,13 +142,9 @@
         queryContentNet()
         .then(function (response) {
           //注意这里的this指向
-          console.log(_this.tableData)
-          console.log(response)
           _this.tableData = response;
-          console.log(JSON.stringify(response))
         }).catch(function (error) {
           console.log(error);
-          console.log(JSON.stringify(error))
         });
       }
 

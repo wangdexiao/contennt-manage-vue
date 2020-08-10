@@ -47,3 +47,13 @@ export function userLogout () {
     data:''
   });
 }
+
+//通过后端获取资源服务器的资源
+export function getRes1 () {
+
+  return request({
+    url: '/getres1',
+    method : 'post',
+    data:''
+  });
+}
