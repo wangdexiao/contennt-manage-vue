@@ -6,12 +6,12 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    user : null
+    userInfo : null
   },
   mutations: {
 
     setUserValue(state,payload){
-      state.user = payload;
+      state.userInfo = payload;
     }
   },
   actions: {
@@ -20,11 +20,24 @@ export default new Vuex.Store({
   },
 
   getters:{
-    userName : (state, getters) => {
-      if(state.user === null){
-        state.user = JSON.parse(localStorage.getItem('userInfo'))
+
+
+    getUserInfo : (state, getters) => {
+
+      if(state.userInfo === null){
+        state.userInfo = localStorage.getItem('userInfo')
       }
-      return state.user !== null ? '姓名:' + state.user.username : '无名氏'
+      console.log("state.userInfo" + state.userInfo)
+      return state.userInfo;
+    },
+
+    getUserName(state,getters){
+      let userName = JSON.parse(getters.getUserInfo).userInfo.userName
+      console.log("用户名称:" + userName)
+      return JSON.parse(getters.getUserInfo).userInfo.userName
     }
+
+
+
   }
 })

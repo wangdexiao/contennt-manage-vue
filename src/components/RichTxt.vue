@@ -20,6 +20,7 @@
 <script >
 
   import { addContent } from '../network/apis'
+  import store from '../store'
 
 
   export default {
@@ -77,11 +78,11 @@
         });
       },
     },
-    computed: {
-      editor() {
-        return this.$refs.myQuillEditor.quill;
-      }
+    created() {
+      console.log("用户信息:" + store.getters.getUserInfo)
     }
+
+
   }
 </script>
 

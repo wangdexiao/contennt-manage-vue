@@ -1,14 +1,18 @@
-import { request ,ssoRequest} from './netRequest';
+import { request } from './netRequest';
 
-export function login (username,passwd) {
+/**
+ * sso
+ * @param code
+ * @returns {AxiosPromise}
+ */
+export function login (code) {
 
-  return ssoRequest({
+  return request({
     url: '/login',
     method : 'post',
-    data: {
-          username: username,
-          passwd: passwd
-      },
+    params: {
+          code
+    },
   });
 }
 
@@ -39,14 +43,14 @@ export function addContent (data) {
 }
 
 
-export function userLogout () {
-
-  return request({
-    url: '/logout',
-    method : 'post',
-    data:''
-  });
-}
+// export function userLogout () {
+//
+//   return request({
+//     url: '/logout',
+//     method : 'post',
+//     data:''
+//   });
+// }
 
 //通过后端获取资源服务器的资源
 export function getRes1 () {
