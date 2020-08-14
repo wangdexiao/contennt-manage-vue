@@ -11,7 +11,7 @@ import da from 'element-ui/src/locale/lang/da'
 export function request (config) {
 
   const instance = axios.create({
-    baseURL : 'http://192.168.1.100:10001/',
+    baseURL : 'http://192.168.1.100:5555/content-manage/',
     timeout : 500000000000,
     headers :{
       // 'X-Requested-With' : 'XMLHttpRequest',
