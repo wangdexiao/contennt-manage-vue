@@ -1,11 +1,11 @@
 import store from '../store'
 const ssoconfig = {
 
-  test: true,
-  test2: true,
    FULL_CHARTER : 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopgrstuvwxyz',
   //应用id
    clientId : 'sharecesuo',
+   redirectUri:'http://192.168.1.100:8099/login',
+   responseType:'code',
   //授权中心地址
    authServer : 'http://192.168.1.100:8000/',
    authorize :'oauth/authorize', //获取授权码
@@ -14,8 +14,12 @@ const ssoconfig = {
   //获取授权码
   getAuthorizeCode() {
     let state = this.getState();
-    sessionStorage.setItem("state", state);
-    window.location = this.authServer + this.authorize + '?client_id='+this.clientId+'&redirect_uri=http://192.168.1.100:8099/login&response_type=code&state='+ state;;
+    window.sessionStorage.setItem('state', state);
+    window.location = this.authServer + this.authorize +
+      '?client_id='+this.clientId+
+      '&redirect_uri=' + this.redirectUri +
+      '&response_type=' + this.responseType +
+      '&state='+ state;
   },
 
   //获取token(约等于登录)通过后端获取因为要使用到client_secret

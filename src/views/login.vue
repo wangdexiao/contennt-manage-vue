@@ -40,7 +40,7 @@
         let localState = sessionStorage.getItem("state");
         //判断state防止CSRF攻击
         if (localState !== state) {
-          alert('state参数无效！');
+          this.$message.error("state参数无效")
           window.location = ssoconfig.getAuthorizeCode();
         }
         let _this = this;

@@ -8,6 +8,7 @@ import { request } from './netRequest';
 export function login (code) {
 
   return request({
+    baseURL : 'http://192.168.1.100:5555',
     url: '/login',
     method : 'post',
     params: {
