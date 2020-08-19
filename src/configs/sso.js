@@ -5,11 +5,22 @@ const ssoconfig = {
   //应用id
    clientId : 'sharecesuo',
    redirectUri:'http://192.168.1.100:8099/login',
+   // redirectUri:'http://192.168.1.100:5555/content-manage/login',
    responseType:'code',
   //授权中心地址
    authServer : 'http://192.168.1.100:8000/',
    authorize :'oauth/authorize', //获取授权码
    logoutUrl :'logout',
+
+  getAuthorizeCodeUrl(){
+    let state = sessionStorage.getItem('state')
+    return 'http://192.168.1.100:5555/sso-server/' + this.authorize +
+      '?client_id='+this.clientId+
+      '%26redirect_uri=' + this.redirectUri +
+      '%26response_type=' + this.responseType +
+      '%26state='+ state;
+  //  %26 &的转义
+  },
 
   //获取授权码
   getAuthorizeCode() {

@@ -8,6 +8,8 @@ import HomeHeader from '../components/layout/HomeHeader'
 import Header from '../components/layout/HomeHeader'
 import store from '../store'
 import ssoconfig from '../configs/sso'
+import {authorizeCode} from '../network/apis'
+import ElementUI from 'element-ui'
 
 Vue.use(VueRouter)
 
@@ -99,6 +101,14 @@ router.beforeResolve((to, from, next) => {
       // })
       sessionStorage.setItem("visitUri", window.location.href);
       ssoconfig.getAuthorizeCode()
+      // authorizeCode()
+      // .then(res => {
+      //   // ElementUI.Message.info(res.msg);
+      //   // console.log("获取授权码正确返回:" + res)
+      // }).catch(err => {
+      //   ElementUI.Message.info(JSON.stringify(err))
+      //   console.log("获取授权码错误:" + err)
+      // })
     }
   }
   else {

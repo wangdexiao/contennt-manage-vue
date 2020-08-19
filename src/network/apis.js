@@ -1,18 +1,44 @@
 import { request } from './netRequest';
+import ssoconfig from '../configs/sso'
+
+/**
+ * 获取授权码
+ * @returns {AxiosPromise}
+ */
+export function authorizeCode () {
+
+  let state = ssoconfig.getState();
+  sessionStorage.setItem('state',state);
+  return request({
+    baseURL : 'http://192.168.1.100:5555/sso-server/',
+    url: 'oauth/authorize',
+    method : 'get',
+    headers :{
+      // Accept : 'ext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3'
+    },
+    params: {
+      'client_id' : ssoconfig.clientId,
+      'redirect_uri' : ssoconfig.redirectUri,
+      'response_type' : ssoconfig.responseType,
+      'state' : state,
+    },
+  });
+}
 
 /**
  * sso
- * @param code
+ * @param code 授权码
  * @returns {AxiosPromise}
  */
-export function login (code) {
+export function login (code,redirectUri) {
 
   return request({
     baseURL : 'http://192.168.1.100:5555',
     url: '/login',
     method : 'post',
     params: {
-          code
+      code,
+      redirectUri
     },
   });
 }

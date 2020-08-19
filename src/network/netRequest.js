@@ -5,7 +5,9 @@ import Vuex from '../store/index'
 import qs from 'qs'
 import store from '../store'
 import da from 'element-ui/src/locale/lang/da'
+import ssoconfig from '../configs/sso'
 // import ssoconfig from '../configs/sso'
+import XEUtils from 'xe-utils'
 
 
 export function request (config) {
@@ -35,8 +37,11 @@ export function request (config) {
       // 在此设置请求头统一携带token
 
       if(config.url !== '/login'){
-        var tokenString = sessionStorage.getItem('access_token')
-        config.headers.Authorization = "Bearer " + tokenString;
+        const tokenString = sessionStorage.getItem('access_token')
+        if(!XEUtils.isEmpty(tokenString)){
+          config.headers.Authorization = "Bearer " + tokenString;
+        }
+
       }
 
       return config;
@@ -51,9 +56,12 @@ export function request (config) {
     res => {
       let result = res.data
       if (result.code === 401) {
-        window.location.href = result.data
+        let currentHref = window.location.href;
+        console.log("当前路径:" + currentHref)
+        window.location.href = result.data + '?redirectUrl=' + ssoconfig.getAuthorizeCodeUrl()
+        // window.location.href = result.data + '?redirectUrl=' + currentHref
         // Router.replace("/login")
-        return
+        return result
       }
 
       return result;

@@ -44,7 +44,7 @@
           window.location = ssoconfig.getAuthorizeCode();
         }
         let _this = this;
-        login(code)
+        login(code,ssoconfig.redirectUri)
         .then(res => {
           localStorage.setItem("userInfo",JSON.stringify(res.data))
 

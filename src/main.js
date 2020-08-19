@@ -8,6 +8,12 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
 
+import XEUtils from 'xe-utils'
+import VXEUtils from 'vxe-utils'
+
+// use:
+Vue.use(VXEUtils, XEUtils, { mounts: ['cookie'] })
+
 
 //引入百度富文本
 import VueUeditorWrap from 'vue-ueditor-wrap'

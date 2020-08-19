@@ -56,7 +56,6 @@
     },
 
     mounted () {
-
       this.queryContent();
 
     },

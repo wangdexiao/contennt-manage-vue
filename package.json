@@ -17,7 +17,9 @@
     "vue-axios": "^2.1.5",
     "vue-quill-editor": "^3.0.6",
     "vue-router": "^3.2.0",
-    "vuex": "^3.4.0"
+    "vuex": "^3.4.0",
+    "vxe-utils": "^2.0.0",
+    "xe-utils": "^2.7.7"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.4.0",
