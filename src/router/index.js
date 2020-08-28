@@ -89,31 +89,31 @@ const router = new VueRouter({
 
 // 定义完路由后，我们主要是利用vue-router提供的钩子函数beforeEach()对路由进行判断。
 
-router.beforeResolve((to, from, next) => {
-  if (to.meta.requireAuth) {  // 判断该路由是否需要登录权限
-    // console.log('用户信息:' + store.getters.getUserInfo)
-    if (store.getters.getUserInfo !== null && store.getters.getUserInfo !== undefined) {  // 通过vuex state获取当前的token是否存在
-      next();
-    } else {
-      // next({
-      //   path: '/login',
-      //   query: {redirect: to.fullPath}  // 将跳转的路由path作为参数，登录成功后跳转到该路由
-      // })
-      sessionStorage.setItem("visitUri", window.location.href);
-      ssoconfig.getAuthorizeCode()
-      // authorizeCode()
-      // .then(res => {
-      //   // ElementUI.Message.info(res.msg);
-      //   // console.log("获取授权码正确返回:" + res)
-      // }).catch(err => {
-      //   ElementUI.Message.info(JSON.stringify(err))
-      //   console.log("获取授权码错误:" + err)
-      // })
-    }
-  }
-  else {
-    next();
-  }
-})
+// router.beforeResolve((to, from, next) => {
+//   if (to.meta.requireAuth) {  // 判断该路由是否需要登录权限
+//     // console.log('用户信息:' + store.getters.getUserInfo)
+//     if (store.getters.getUserInfo !== null && store.getters.getUserInfo !== undefined) {  // 通过vuex state获取当前的token是否存在
+//       next();
+//     } else {
+//       // next({
+//       //   path: '/login',
+//       //   query: {redirect: to.fullPath}  // 将跳转的路由path作为参数，登录成功后跳转到该路由
+//       // })
+//       sessionStorage.setItem("visitUri", window.location.href);
+//       ssoconfig.getAuthorizeCode()
+//       // authorizeCode()
+//       // .then(res => {
+//       //   // ElementUI.Message.info(res.msg);
+//       //   // console.log("获取授权码正确返回:" + res)
+//       // }).catch(err => {
+//       //   ElementUI.Message.info(JSON.stringify(err))
+//       //   console.log("获取授权码错误:" + err)
+//       // })
+//     }
+//   }
+//   else {
+//     next();
+//   }
+// })
 
 export default router

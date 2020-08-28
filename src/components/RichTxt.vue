@@ -80,7 +80,7 @@
       },
     },
     created() {
-      console.log("用户信息:" + store.getters.getUserInfo)
+      // console.log("用户信息:" + store.getters.getUserInfo)
     }
 
 

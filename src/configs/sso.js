@@ -4,7 +4,7 @@ const ssoconfig = {
    FULL_CHARTER : 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopgrstuvwxyz',
   //应用id
    clientId : 'sharecesuo',
-   redirectUri:'http://192.168.1.100:8099/login',
+   redirectUri:'http://139.9.139.63:8099/login',
    // redirectUri:'http://192.168.1.100:5555/content-manage/login',
    responseType:'code',
   //授权中心地址
@@ -44,7 +44,7 @@ const ssoconfig = {
     sessionStorage.removeItem('username');
     sessionStorage.removeItem("roles");
     store.commit('setUserValue',null)
-    window.location = this.authServer + this.logoutUrl+ '?redirect_uri=http://192.168.1.100:8099/&access_token='+accessToken;
+    window.location = this.authServer + this.logoutUrl+ '?redirect_uri=http://139.9.139.63:8099/&access_token='+accessToken;
   },
 
 

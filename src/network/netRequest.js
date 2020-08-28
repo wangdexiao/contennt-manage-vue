@@ -13,14 +13,14 @@ import XEUtils from 'xe-utils'
 export function request (config) {
 
   const instance = axios.create({
-    baseURL : 'http://192.168.1.100:5555/content-manage/',
+    baseURL : 'http://192.168.1.100:10001/',
     timeout : 500000000000,
     headers :{
       // 'X-Requested-With' : 'XMLHttpRequest',
       // 'Content-Type': 'application/x-www-form-urlencoded'
       // 'Accept':  '*/*'
     },
-    // withCredentials: true,
+    withCredentials: true,
     //转换请求数据，// 有qs 就不需要这个了,会自动添加 headers: { 'content-type': 'application/x-www-form-urlencoded' },
     transformRequest: data => {
       // console.log('请求参数' + JSON.stringify(data))
@@ -55,10 +55,13 @@ export function request (config) {
   instance.interceptors.response.use(
     res => {
       let result = res.data
+
+
       if (result.code === 401) {
         let currentHref = window.location.href;
         console.log("当前路径:" + currentHref)
-        window.location.href = result.data + '?redirectUrl=' + ssoconfig.getAuthorizeCodeUrl()
+        sessionStorage.setItem("visitUri",window.location.href)
+        window.location.href = result.data + '?redirectUrl=' + sessionStorage.getItem("visitUri")
         // window.location.href = result.data + '?redirectUrl=' + currentHref
         // Router.replace("/login")
         return result
