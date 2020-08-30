@@ -57,6 +57,7 @@
 
     mounted () {
       this.queryContent();
+      // this.getRes1();
 
     },
 
@@ -97,13 +98,13 @@
       //添加content 按钮点击事件
       addContent() {
         // this.$emit('routeAddContent',null)
-        // this.$router.replace("/content-add")
-        getRes1()
-        .then(res => {
-          this.$message.info("获取到资源" + res)
-        }).catch(error => {
-
-        })
+        this.$router.replace("/content-add")
+        // getRes1()
+        // .then(res => {
+        //   this.$message.info("获取到资源" + res)
+        // }).catch(error => {
+        //
+        // })
       },
 
 
@@ -145,8 +146,17 @@
         }).catch(function (error) {
           console.log(error);
         });
+      },
+      test(){
+        var _this = this;
+        test()
+          .then(function (response) {
+            //注意这里的this指向
+            _this.tableData = response;
+          }).catch(function (error) {
+          console.log(error);
+        });
       }
-
 
     }
   }

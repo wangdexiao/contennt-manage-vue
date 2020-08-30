@@ -5,7 +5,6 @@ import Vuex from '../store/index'
 import qs from 'qs'
 import store from '../store'
 import da from 'element-ui/src/locale/lang/da'
-import ssoconfig from '../configs/sso'
 // import ssoconfig from '../configs/sso'
 import XEUtils from 'xe-utils'
 
@@ -35,15 +34,6 @@ export function request (config) {
 
       //某些网络请求（比如登录（token）），必须携带一些特殊的信息
       // 在此设置请求头统一携带token
-
-      if(config.url !== '/login'){
-        const tokenString = sessionStorage.getItem('access_token')
-        if(!XEUtils.isEmpty(tokenString)){
-          config.headers.Authorization = "Bearer " + tokenString;
-        }
-
-      }
-
       return config;
     },
     error => {
@@ -58,12 +48,8 @@ export function request (config) {
 
 
       if (result.code === 401) {
-        let currentHref = window.location.href;
-        console.log("当前路径:" + currentHref)
-        sessionStorage.setItem("visitUri",window.location.href)
-        window.location.href = result.data + '?redirectUrl=' + sessionStorage.getItem("visitUri")
-        // window.location.href = result.data + '?redirectUrl=' + currentHref
-        // Router.replace("/login")
+        Message.warning("未认证,去登录")
+        window.location.href = result.data + '?redirectUrl=' + window.location.href
         return result
       }
 

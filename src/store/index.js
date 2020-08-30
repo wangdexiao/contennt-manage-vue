@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import XEUtils from 'xe-utils/methods'
 
 Vue.use(Vuex)
 
@@ -12,6 +13,13 @@ export default new Vuex.Store({
 
     setUserValue(state,payload){
       state.userInfo = payload;
+      console.log(payload + " type is " + typeof payload)
+      localStorage.setItem("userInfo",payload)
+    },
+
+    clearUserValue(state){
+      state.userInfo = null;
+      localStorage.removeItem("userInfo")
     }
   },
   actions: {
@@ -23,18 +31,25 @@ export default new Vuex.Store({
 
 
     getUserInfo : (state, getters) => {
-
       if(state.userInfo === null){
         state.userInfo = localStorage.getItem('userInfo')
       }
-      console.log("state.userInfo" + state.userInfo)
+      console.log("用户信息:" + state.userInfo)
       return state.userInfo;
     },
 
     getUserName(state,getters){
-      let userName = JSON.parse(getters.getUserInfo).userInfo.userName
+      let userName = '';
+
+
+      if(!XEUtils.isEmpty(getters.getUserInfo) && !XEUtils.isUndefined(getters.getUserInfo)){
+
+        console.log(getters.getUserInfo)
+        let userInfo = JSON.parse(getters.getUserInfo)
+        userName = userInfo.name
+      }
       console.log("用户名称:" + userName)
-      return JSON.parse(getters.getUserInfo).userInfo.userName
+      return userName
     }
 
 
