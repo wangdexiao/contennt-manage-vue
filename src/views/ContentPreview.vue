@@ -1,5 +1,6 @@
 <template>
-    <div id="app" >
+    <div  ><!--id="app"-->
+
       <div v-html="$route.query.content">
 
 <!--        {{$route.query.content}}-->

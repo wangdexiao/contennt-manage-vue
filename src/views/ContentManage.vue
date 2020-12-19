@@ -56,8 +56,15 @@
     },
 
     mounted () {
+      let _this = this
       this.queryContent();
-      // this.getRes1();
+      getRes1()
+      .then(res => {
+        _this.$message.info(res.data)
+      })
+      .catch(err => {
+        _this.$message.info(err)
+      })
 
     },
 

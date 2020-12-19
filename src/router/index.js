@@ -17,6 +17,12 @@ const routes = [
     path: '/home-header',
     component: HomeHeader
   },
+  //预览内容页面
+  {
+    path: '/content-preview',
+    component: () => import('../views/ContentPreview'),
+    props: (route) => ({ query: route.query.content }),
+  },
   //home 页
   {
     path: '/',
@@ -44,15 +50,13 @@ const routes = [
         component: () => import('../views/ContentAdd'),
 
       },
-      //预览内容页面
-      {
-        path: 'content-preview',
-        component: () => import('../views/ContentPreview'),
-        props: (route) => ({ query: route.query.content }),
-      },
+
     ]
 
   },
+
+
+
 ];
 
 

@@ -59,7 +59,7 @@ export function userLogout () {
 export function getRes1 () {
 
   return request({
-    url: '/getres1',
+    url: '/hellores',
     method : 'post',
     data:''
   });
