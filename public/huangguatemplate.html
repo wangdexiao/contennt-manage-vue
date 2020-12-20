@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html data-use-rem="750">
+<head>
+    <meta charset="UTF-8">
+    <title>欢迎进入测试企业追溯系统</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="format-detection" content="telephone=no, email=no">
+    <meta name="google" value="notranslate">
+    <meta name="description" content="">
+    <meta name="author" content="Administrator">
+    <meta name="apple-itunes-app" content="app-id=123131232132">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="MobileOptimized" content="320">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="browsermode" content="application">
+    <meta name="x5-page-mode" content="app">
+    <meta name="x5-page-mode" content="default">
+    <link rel="stylesheet" href="./Content/newMobileTrace/css/reset-h5.css">
+    <link rel="stylesheet" href="./Content/newMobileTrace/css/index.css">
+    <link rel="stylesheet" href="./Content/newMobileTrace/css/swiper.css">
+    <link rel="stylesheet" id="hj" href="./Content/newMobileTrace/font/iconfont.css">
+
+
+    <style>
+        /*.swiper-wrapper img {
+            height: 4.34rem;
+        }*/
+    </style>
+</head>
+<body>
+<div>
+    <script type="text/javascript" src="./Content/mobileTrace/js/jquery-2.1.4.js"></script>
+    <script src="./Content/newMobileTrace/js/rem.js"></script>
+    <script src="./Content/newMobileTrace/js/swiper.min.js"></script>
+
+
+    <style>
+        /*.swiper-wrapper img {
+            height: 4.34rem;
+        }*/
+
+        .banner2 {
+            margin: -0.1rem 0 0.3rem 0;
+        }
+
+        .banner2 img {
+            height: 3.27rem;
+        }
+    </style>
+
+    <div class="swiper-container" id="swiper-container1">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <a href="javascript:;"><img src="./Attachment/DownLoad/c4a8c768-e3bb-4fbc-bb2f-846d2a2b591f"
+                                            width="100%" height="auto" class="cpimg"/></a>
+            </div>
+
+        </div>
+        <div class="swiper-pagination" id="swiper-pagination1"></div>
+    </div>
+
+
+    <div class="fw-box">
+        <p class="p1">您查询的溯源码为</p>
+        <div class="fwCode">20201111021</div>
+        <p class="p2">此码已核实是由<span>测试企业</span>出品的系列产品，感谢您的购买。</p>
+    </div>
+    <!--产品基本信息-->
+    <img src='./Content/newMobileTrace/images/top_bg.jpg' width="100%"/>
+    <div class="cpinfo-box ">
+        <div class="clearfix">
+            <img src="./Attachment/DownLoad/c4a8c768-e3bb-4fbc-bb2f-846d2a2b591f" class="cpimg"/>
+
+
+            <h1 class="cpmame">黄瓜</h1>
+            <p>&nbsp;</p>
+
+
+        </div>
+        <ul class="cpinfo-list clearfix">
+            <li>商品条码：<span>00000000</span></li>
+            <li>批次号：<span>202011001</span></li>
+            <li>品牌：<span>杲城合作联社</span></li>
+            <li>包装规格：<span>斤</span></li>
+            <li>单位：<span>斤</span></li>
+            <li>品类：<span>加工成品</span></li>
+
+
+        </ul>
+    </div>
+    <img src='./Content/newMobileTrace/images/bottom_bg.jpg' width="100%"/>
+    <!--滑动按钮部分-->
+    <div id="scrool-flg"></div>
+    <div class='clearfix' id='boxtop'>
+        <ul class="btn-box">
+
+            <li><img src='./Content/newMobileTrace/images/btn_wl01.png' class='wl'/>
+                <p>物流查询</p></li>
+            <li><img src='./Content/newMobileTrace/images/btn_zz00.png' class='zz'/>
+                <p>种植查询</p></li>
+            <li><img src='./Content/newMobileTrace/images/btn_szhj00.png' class='szhj'/>
+                <p>生长环境</p></li>
+            <li><img src='./Content/newMobileTrace/images/btn_scjg00.png' class='scjg'/>
+                <p>生产加工</p></li>
+            <li><img src='./Content/newMobileTrace/images/btn_lxwm00.png' class='lxwm'/>
+                <p>联系我们</p></li>
+        </ul>
+    </div>
+    <div class='info info-wl' style="display: none; margin-bottom: 10px">
+        <style>
+            .tel {
+                margin-top: 30px;
+            }
+        </style>
+
+
+        <div class="box box1">
+            <h2 class="tit">生产入库<i class="arrow arrow_wl_down"></i></h2>
+            <ul class="detail clearfix">
+                <li class="fb">单号：SCRK202011110001</li>
+                <li>2020-11-11</li>
+                <li>&nbsp;</li>
+                <li>成品库</li>
+            </ul>
+        </div>
+        <div class="box box1">
+            <h2 class="tit">销售出库<i class="arrow arrow_wl_down"></i></h2>
+            <ul class="detail clearfix">
+                <li class="fb">单号：XSCK202011110001</li>
+                <li>2020-11-11</li>
+                <li>&nbsp;</li>
+                <li>大润发</li>
+            </ul>
+        </div>
+
+        <script>
+          function checkAccessory (fileId) {
+            window.open('/Query/SelQCImportData/?fileId=' + fileId)
+          }
+        </script>
+    </div>
+    <!--种植-->
+    <div class='info info-zz' style="display: none;">
+
+        <div class="xq">
+            <p>批次号：<span>2020111101</span></p>
+            <p>产品名称：<span>种植黄瓜</span></p>
+            <p>批次数量：<span>100亩</span></p>
+            <p>批次类型：<span>种植批次</span></p>
+            <p>完成时间：<span>2020/11/11 0:00:00</span></p>
+            <p>创建人：<span>山东兆信</span></p>
+            <p>记录状态：<span>完成</span></p>
+
+        </div>
+        <div class="box box2">
+            <h2 class="tit">基地信息<i class="arrow arrow_zz_down"></i></h2>
+            <ul class="detail clearfix" style="width:100%;padding:0;margin:0 auto;">
+                <li style="width:100%;height:auto;word-break:break-all;">基地信息：王杲铺镇***村张三种植基地1号棚</li>
+                <li style="width:100%;height:auto;word-break:break-all;">基地大小：100</li>
+                <li style="width:100%;height:auto;word-break:break-all;">责任人：张三</li>
+                <li><img src="./Attachment/DownLoad/eca36725-cc35-4dc2-890a-310b982857fa" alt="通用的占位符缩略图"/></li>
+
+            </ul>
+        </div>
+        <div class="box box2">
+            <h2 class="tit">育苗<i class="arrow arrow_zz_down"></i></h2>
+            <ul class="detail clearfix" style="width:100%;padding:0;margin:0 auto;">
+                <li style="width:100%;height:auto;word-break:break-all;">育苗名称：青黄瓜种苗</li>
+                <li style="width:100%;height:auto;word-break:break-all;">育苗时间：2020-10-01</li>
+                <li style="width:100%;height:auto;word-break:break-all;">责任人：张三</li>
+                <li><img src="./Attachment/DownLoad/d6cbd9f7-88a3-4315-a035-453b009cacb1" alt="通用的占位符缩略图"/></li>
+
+            </ul>
+        </div>
+        <div class="box box2">
+            <h2 class="tit">育苗移栽<i class="arrow arrow_zz_down"></i></h2>
+            <ul class="detail clearfix" style="width:100%;padding:0;margin:0 auto;">
+                <li style="width:100%;height:auto;word-break:break-all;">日期：2020-10-03</li>
+                <li style="width:100%;height:auto;word-break:break-all;">责任人：张三</li>
+                <li><img src="./Attachment/DownLoad/cbded8fb-92bc-41a9-9777-62bf2398dc01" alt="通用的占位符缩略图"/></li>
+
+            </ul>
+        </div>
+        <div class="box box2">
+            <h2 class="tit">灌溉<i class="arrow arrow_zz_down"></i></h2>
+            <ul class="detail clearfix" style="width:100%;padding:0;margin:0 auto;">
+                <li style="width:100%;height:auto;word-break:break-all;">灌溉方式：滴灌</li>
+                <li style="width:100%;height:auto;word-break:break-all;">操作人：张三</li>
+                <li style="width:100%;height:auto;word-break:break-all;">日期：2020-10-14</li>
+                <li><img src="./Attachment/DownLoad/db00231f-11dc-4fa5-ad74-85b7a4c51989" alt="通用的占位符缩略图"/></li>
+
+            </ul>
+        </div>
+        <div class="box box2">
+            <h2 class="tit">施肥<i class="arrow arrow_zz_down"></i></h2>
+            <ul class="detail clearfix" style="width:100%;padding:0;margin:0 auto;">
+                <li style="width:100%;height:auto;word-break:break-all;">肥料名称：有机复合肥</li>
+                <li style="width:100%;height:auto;word-break:break-all;">用量：100kg/亩</li>
+                <li style="width:100%;height:auto;word-break:break-all;">责任人：张三</li>
+                <li style="width:100%;height:auto;word-break:break-all;">日期：2020-10-28</li>
+                <li><img src="./Attachment/DownLoad/2248ba24-b0fd-4074-a753-153a3da74bb9" alt="通用的占位符缩略图"/></li>
+
+            </ul>
+        </div>
+        <div class="box box2">
+            <h2 class="tit">除草<i class="arrow arrow_zz_down"></i></h2>
+            <ul class="detail clearfix" style="width:100%;padding:0;margin:0 auto;">
+                <li style="width:100%;height:auto;word-break:break-all;">事件描述：人工除草</li>
+                <li style="width:100%;height:auto;word-break:break-all;">操作人：张三</li>
+                <li style="width:100%;height:auto;word-break:break-all;">日期：2020-10-31</li>
+                <li><img src="./Attachment/DownLoad/f656c21c-08fe-4948-9a5c-20f0dfc069a5" alt="通用的占位符缩略图"/></li>
+
+            </ul>
+        </div>
+        <div class="box box2">
+            <h2 class="tit">病虫害防治<i class="arrow arrow_zz_down"></i></h2>
+            <ul class="detail clearfix" style="width:100%;padding:0;margin:0 auto;">
+                <li style="width:100%;height:auto;word-break:break-all;">更新时间：2020-11-07</li>
+                <li style="width:100%;height:auto;word-break:break-all;">用药名称：黄板</li>
+                <li style="width:100%;height:auto;word-break:break-all;">用量：10张</li>
+                <li style="width:100%;height:auto;word-break:break-all;">责任人：张三</li>
+                <li style="width:100%;height:auto;word-break:break-all;">日期：2020-11-07</li>
+                <li><img src="./Attachment/DownLoad/c32a4241-5db9-4224-9016-08fc9decbe54" alt="通用的占位符缩略图"/></li>
+
+            </ul>
+        </div>
+        <div class="box box2">
+            <h2 class="tit">采收<i class="arrow arrow_zz_down"></i></h2>
+            <ul class="detail clearfix" style="width:100%;padding:0;margin:0 auto;">
+                <li style="width:100%;height:auto;word-break:break-all;">更新时间：2020-11-11</li>
+                <li style="width:100%;height:auto;word-break:break-all;">责任人：张三</li>
+                <li style="width:100%;height:auto;word-break:break-all;">日期：2020-11-11</li>
+                <li><img src="./Attachment/DownLoad/b9ba0ade-80ae-4b77-84a6-c5411bac958f" alt="通用的占位符缩略图"/></li>
+
+            </ul>
+        </div>
+
+    </div>
+    <!--生长环境-->
+    <div class='info info-szhj' style="display: none;">
+
+
+        <div class="xq-item">
+            <div class="xq-item-content">
+                <div class="data-head">降雨量</div>
+                <div id="content" style="width:6.8rem;margin:0 auto;height:5.5rem;"></div>
+                <div id="video-container"></div>
+            </div>
+        </div>
+
+        <div class="xq-nav">
+            <div class="swiper-container" id="sw">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="item-list clearfix">
+                            <a href="javascript:;" class="nav-active" data-title="雨量">
+                                <i class="iconfont icon-jiangyu" style="font-size:0.5rem;"></i>
+                                <p>降雨量</p>
+                            </a>
+
+                            <a href="javascript:;" data-title="土温">
+                                <i class="iconfont icon-turangwendu" style="font-size:0.5rem;"></i>
+                                <p>土壤温度</p>
+                            </a>
+
+                            <a href="javascript:;" data-title="土湿">
+                                <i class="iconfont icon-skturangshidu-yunle" style="font-size:0.5rem;"></i>
+                                <p>土壤湿度</p>
+                            </a>
+
+                            <a href="javascript:;" data-title="气温">
+                                <i class="iconfont icon-kongqishidu" style="font-size:0.5rem;"></i>
+                                <p>空气温度</p>
+                            </a>
+
+                            <a href="javascript:;" data-title="湿度">
+                                <i class="iconfont icon-shidu" style="font-size:0.5rem;"></i>
+                                <p>空气湿度</p>
+                            </a>
+
+                            <a href="javascript:;" data-title="PH">
+                                <i style="font-size:0.47rem;">PH</i>
+                                <p style="padding-top:0.1rem;">PH值</p>
+                            </a>
+
+                            <a href="javascript:;" data-title="风速">
+                                <i class="iconfont icon-fengsu"></i>
+                                <p>风速</p>
+                            </a>
+
+                            <a href="javascript:;" data-title="光照">
+                                <i class="iconfont icon-guangzhaoxiaoguo"></i>
+                                <p>光照</p>
+                            </a>
+
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="item-list clearfix">
+                            <a href="javascript:;" data-title="有机质">
+                                <i class="iconfont icon-icon3"></i>
+                                <p>有机质</p>
+                            </a>
+
+                            <a href="javascript:;" data-title="大气压力">
+                                <i class="iconfont icon-qiya"></i>
+                                <p>气压</p>
+                            </a>
+
+                            <a href="javascript:;" data-title="视频">
+                                <i class="iconfont icon-shipin"></i>
+                                <p>现场视频</p>
+                            </a>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="swiper-pagination" id="navs"></div>
+            </div>
+        </div>
+
+        <script src="./Content/newMobileTrace/js/echarts.common.min.js"></script>
+        <script>
+          $(function () {
+            console.log("文档加载完成")
+            alert("文档加载完成")
+            $('#content').css({
+              'height': '5.5rem',
+              'width': '6.8rem;',
+              'margin': '0 auto'
+            })
+            //数据导航滑块
+            var navSwiper = new Swiper('#sw', {
+              pagination: '#navs',
+              paginationClickable: true,
+              observer: true,
+              observeParents: true,
+              spaceBetween: 0,
+              centeredSlides: true,
+              autoplay: false,
+              autoplayDisableOnInteraction: false
+            })
+
+            //点击触发不同模块，加载不同数据
+            $('#sw').find('a').click(function () {
+              var attrStr = $(this).attr('data-title')
+              //数据模块选中状态
+              $(this).addClass('nav-active').siblings().removeClass('nav-active')
+              $(this).parent().parent().siblings().find('a').removeClass('nav-active')
+              //点击后走接口
+              DoSearch(attrStr)
+
+            })
+          })
+
+          //初始化状态降雨量
+          var initState = DoSearch('降雨量')
+
+          function DoSearch (str) {
+            var option = {
+              title: [
+                {
+                  text: '（mm）',
+                  right: '4%',
+                  top: '7%',
+                  textStyle: {
+                    color: '#333',
+                    fontSize: 12,
+                    fontWeight: '400'
+                  }
+                }, {
+                  text: '（月）',
+                  right: '0',
+                  bottom: '4%',
+                  textStyle: {
+                    color: '#333',
+                    fontSize: 12,
+                    fontWeight: '400'
+                  }
+                }
+              ],
+              tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                  lineStyle: {
+                    color: '#ddd'
+                  }
+                }
+              },
+
+              color: ['#f79494', '#94e5f7', '#b9f794', '#f394f7', '#89e5b9', '#94e5f7', '#b9f794', '#f394f7'],
+              legend: {
+                right: '5%',
+                top: '0',
+                orient: 'horizontal',
+                data: ['同期最高', '同期最低']
+              },
+
+              grid: {
+                left: '7%',
+                right: '7%',
+                top: '18%',
+                bottom: '5%',
+                containLabel: true
+              },
+
+              xAxis: {
+                type: 'category',
+                name: '',
+                data: [''],
+                boundaryGap: false,
+                splitLine: {
+                  show: false,
+                  interval: 'auto',
+                  lineStyle: {
+                    color: ['#D4DFF5']
+                  }
+                },
+                axisTick: {
+                  show: false
+                },
+                axisLine: {
+                  lineStyle: {
+                    color: '#D4DFF5',
+                    width: 1
+                  }
+                },
+                axisLabel: {
+                  margin: 10,
+                  textStyle: {
+                    fontSize: 14,
+                    color: '#000'
+                  }
+                }
+              },
+              yAxis: {
+                type: 'value',
+                name: '',
+                position: 'right',
+                splitLine: {
+                  lineStyle: {
+                    color: ['#D4DFF5']
+                  }
+                },
+                axisTick: {
+                  show: false
+                },
+                axisLine: {
+                  lineStyle: {
+                    color: '#D4DFF5',
+                    width: 0
+                  }
+                },
+                axisLabel: {
+                  margin: 10,
+                  textStyle: {
+                    fontSize: 14,
+                    color: '#000'
+                  }
+                }
+              },
+              series: [
+                {
+                  name: '同期最高',
+                  type: 'line',
+                  smooth: false,
+                  showSymbol: true,
+                  symbol: 'emptyCircle',
+                  symbolSize: 4,
+                  data: [''],
+                  lineStyle: {
+                    normal: {
+                      width: 1
+                    }
+                  }
+                },
+                {
+                  name: '同期最低',
+                  type: 'line',
+                  smooth: false,
+                  showSymbol: true,
+                  symbol: 'circle',
+                  symbolSize: 4,
+                  data: [''],
+                  lineStyle: {
+                    normal: {
+                      width: 1
+                    }
+                  }
+                }]
+            }
+
+            //标题头根据data-title属性名称变化
+            $('.data-head').html(str)
+
+            //根据data-title属性名变化单位
+            switch (str) {
+              case '降雨量':
+                option.title[0].text = '（mm）'
+                option.title[1].text = '（月）'
+                break
+
+              case '土壤温度':
+                option.title[0].text = '（℃）'
+                option.title[1].text = '（月）'
+                break
+
+              case '土壤湿度':
+                option.title[0].text = '（rh）'
+                option.title[1].text = '（月）'
+                break
+
+              case '空气温度':
+                option.title[0].text = '（℃）'
+                option.title[1].text = '（月）'
+                break
+
+              case '空气湿度':
+                option.title[0].text = '（rh）'
+                option.title[1].text = '（月）'
+                break
+
+              case 'PH值':
+                option.title[0].text = '（PH）'
+                option.title[1].text = '（月）'
+                break
+
+              case '风速':
+                option.title[0].text = '（m/s）'
+                option.title[1].text = '（月）'
+                break
+
+              case '光照':
+                option.title[0].text = '（lux）'
+                option.title[1].text = '（月）'
+                break
+
+              case '有机质':
+                option.title[0].text = '（g/kg）'
+                option.title[1].text = '（月）'
+                break
+
+              case '气压':
+                option.title[0].text = '（pa）'
+                option.title[1].text = '（月）'
+                break
+            }
+
+
+            //初始化echarts
+            var myChart = echarts.init(document.getElementById('content'))
+            if (str != '视频') {
+              $('#content').show().css({
+                'width': '100%',
+                'height': '5.5rem'
+              })
+              $('#video-container').hide()
+
+              //x轴月份值
+              //option.xAxis.data = ['01', '02', '03', '04', '05', '06', '07', '08', '09', "10", '11', '12'];
+
+              $.ajax({
+                url: 'http://trace.zx3315.cn/Individuation/GetDataByEnvironmentType',
+                type: 'post',
+                async: false,
+                data: {
+                  corpId: '56',
+                  displayName: str,
+                  startTime: '2018/10/1 0:00:00',
+                  endTime: '2020/12/20 15:27:24',
+                  addr: ''
+                },
+                dataType: 'json',
+                success: function (data) {
+                  //月份最高点值
+                  //option.series[0].data = ['12', '14', '18', '14', '16', '18', '13', '50', '11', '10', '8', '6'];
+                  //月份最低点值
+                  //option.series[1].data = ['12', '14', '1', '4', '6', '8', '3', '0', '1', '0', '8', '6'];
+
+                  option.title[1].text = data.differDayStr
+                  option.xAxis.data = data.xAxis
+                  option.series[0].data = data.maxData
+                  option.series[1].data = data.minData
+                },
+                error: function () {
+
+                }
+              })
+              myChart.setOption(option)
+            } else {
+              //视频区域
+              $('#content').hide()
+              $('#video-container').show()
+              var vStr = '<div class="zy_media">' +
+                '<video poster=""  webkit-playsinline>' +
+                '<source src="http://ae-images.oss-cn-shenzhen.aliyuncs.com/20161215/2016121512085769-k01628u2czx.p702.1.mp4">' +
+                '您的浏览器不支持HTML5视频' +
+                '</video> </div> '
+              $('#video-container').html(vStr)
+              //视频播放
+              zymedia('video', {
+                alwaysShowControls: false,
+                preload: 'auto',
+                hideVideoControlsOnLoad: false,
+                alwaysShowHours: true
+              })
+            }
+          }
+        </script>
+    </div>
+    <!--养殖-->
+    <!--生产加工-->
+    <div class='info info-scjg' style="display: none;">
+        <style>
+            .info .box2 .detail li {
+                width: 100%;
+            }
+        </style>
+        <div class="xq">
+            <p>批次号：<span>202011001</span></p>
+            <p>产品名称：<span>黄瓜</span></p>
+            <p>批次数量：<span>1000斤</span></p>
+            <p>批次类型：<span>生产批次</span></p>
+            <p>完成时间：<span>2020/11/11 0:00:00</span></p>
+            <p>创建人：<span>山东兆信</span></p>
+            <p>记录状态：<span>已使用完</span></p>
+
+        </div>
+        <div class="box box2">
+            <h2 class="tit">分拣包装<i class="arrow arrow_zz_down"></i></h2>
+            <ul class="detail clearfix">
+                <li>包装责任人：张三</li>
+                <li>日期：2020-11-11</li>
+                <li><img src="./Attachment/DownLoad/7265eaa2-18d1-4346-8926-debb1ad572ea" style="width:100%"
+                         alt="通用的占位符缩略图"/></li>
+
+            </ul>
+        </div>
+
+    </div>
+    <!--个性化模块-->
+    <!--联系我们-->
+    <div class='info info-lxwm' style="display: none">
+
+
+        <div class="swiper-container" id="swiper-container2">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <a href="javascript:;"><img src="./Attachment/DownLoad/78791074-3ad9-4152-a6dc-e815b535b46b"
+                                                width="100%"/></a>
+                </div>
+
+            </div>
+            <div class="swiper-pagination" id="swiper-pagination2"></div>
+        </div>
+        <p style="font-weight: bold;">企业介绍</p>
+        <p><span style="background-color:#FFFFFF;"></span>
+        <p>
+            <span style="color:#333333;font-family:&quot;font-size:18px;background-color:#FFFFFF;">“合作联社的发展将引领全镇蔬菜、粮食以及特色产品加工这三大产业。计划通过三到五年的时间，把王杲铺建设成优质麦育种基地和绿色品牌蔬菜种植基地，实现粮食产业1800万元以上的增收，蔬菜产业4.7亿元以上的增收。</span>
+        </p>
+        <p>
+            <br/>
+        </p></p>
+
+
+        <div class='info info-lxwm' style="display: none;">
+            <p>公司：测试企业</p>
+            <p>联系电话：<a href="tel:">无</a></p>
+            <p>固定电话：<a href="tel:0536-8221913">0536-8221913</a></p>
+            <p>地址：山东省潍坊市奎文区鸢飞路397号</p>
+            <p>邮编：无</p>
+        </div>
+
+    </div>
+
+
+</div>
+
+<script>
+  var swiper1 = new Swiper('#swiper-container1', {
+    pagination: '#swiper-pagination1',
+    paginationClickable: true,
+    spaceBetween: 0,
+    centeredSlides: true,
+    autoplay: 21500,
+    autoplayDisableOnInteraction: false
+  })
+
+  //控制按钮盒子 当滑动到顶端时候固定在顶端
+  $(window).scroll(function () {
+    var winH = $('#scrool-flg').offset().top - $(window).scrollTop()
+
+    if (winH < 0) {
+      $('#boxtop').addClass('btn-box-fixed')
+      $('#scrool-flg').css('height', '2rem')
+    } else {
+      $('#boxtop').removeClass('btn-box-fixed')
+      $('#scrool-flg').css('height', '1px')
+    }
+  })
+
+  //上下按钮效果arrow
+  $('.arrow').click(function () {
+    var obj = $(this)
+    var name = $(this).attr('class')
+    if (name.indexOf('down') >= 0) {
+      obj.parents('.box').find('.detail').hide()
+      name = name.replace('down', 'up')
+    } else {
+      obj.parents('.box').find('.detail').show()
+      name = name.replace('up', 'down')
+    }
+    obj.attr('class', name)
+    //				console.log(name);
+
+  })
+
+  //滑动按钮事件
+  $('.btn-box img').click(function () {
+    var objbtn = $(this)
+    var btns = $(this).attr('src')
+    if (btns.indexOf('00') >= 0) {
+      //替换其他按钮
+      $('.btn-box img').each(function () {
+        var str = $(this).attr('src').replace('01', '00')
+        $(this).attr('src', str) //修改图片路径
+      })
+      //替换点击按钮
+      btns = btns.replace('00', '01')
+      objbtn.attr('src', btns)
+      //切换info
+      var divs = btns.replace('./Content/newMobileTrace/images/btn_', '').replace('01.png', '')
+      $('.info').hide()
+      $('.info-' + divs).show()
+      if (divs == 'lxwm' || divs == 'zjbg') {
+        var swiper2 = new Swiper('#swiper-container2', {
+          pagination: '#swiper-pagination2',
+          paginationClickable: true,
+          spaceBetween: 0,
+          centeredSlides: true,
+          //				autoplay: 500,
+          autoplayDisableOnInteraction: false
+
+        })
+      }
+    }
+  })
+
+  $('div[class^=info]:first').css('display', 'block')
+</script>
+</body>
+</html>

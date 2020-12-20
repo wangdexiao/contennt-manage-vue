@@ -1,6 +1,13 @@
 import { request } from './netRequest';
 
 
+//查询发布的内容
+export function loadHtml (url) {
+  return request({
+    url: url,
+    method : 'get',
+  });
+}
 
 export function getUserInfo(){
   return request({
@@ -21,6 +28,15 @@ export function queryContentNet () {
     method : 'post',
   });
 }
+
+//查询发布的内容
+export function queryProductNet (id) {
+  return request({
+    url: '/content/query/' + id,
+    method : 'post',
+  });
+}
+
 
 export function delContentNet (id) {
   return request({

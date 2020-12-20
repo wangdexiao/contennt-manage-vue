@@ -3,10 +3,15 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
+import Meta from 'vue-meta'
+
 // 完整引入element-ui
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
+
+
+Vue.use(Meta);
 
 import XEUtils from 'xe-utils'
 import VXEUtils from 'vxe-utils'

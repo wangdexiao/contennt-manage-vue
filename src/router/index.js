@@ -19,7 +19,7 @@ const routes = [
   },
   //预览内容页面
   {
-    path: '/content-preview',
+    path: '/content-preview/:id',
     component: () => import('../views/ContentPreview'),
     props: (route) => ({ query: route.query.content }),
   },

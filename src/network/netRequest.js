@@ -48,6 +48,7 @@ export function request (config) {
 
 
       if (result.code === 401) {
+        console.log("没有权限的url：" + instance.url)
         Message.warning("未认证,去登录")
         window.location.href = result.data + '?redirectUrl=' + window.location.href
         return result

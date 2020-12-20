@@ -86,11 +86,13 @@
 
       // 处理操作编辑按钮
       handleQuery(index, row) {
+        let id = row.id;
         this.$router.replace({
-           path : "/content-preview",
+           path : "/content-preview/" + id,
            query : {
-             content : row.content
-           }
+             // content : row.content
+           },
+
           },
         )
       },

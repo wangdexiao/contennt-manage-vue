@@ -9973,9 +9973,10 @@ var LocalStorage = UE.LocalStorage = (function () {
 ///plugin 编辑器默认的过滤转换机制
 
 UE.plugins['defaultfilter'] = function () {
+  return
     var me = this;
     me.setOpt({
-        'allowDivTransToP':true,
+        'allowDivTransToP':false,
         'disabledTableInTable':true
     });
     //默认的过滤处理
@@ -10110,16 +10111,16 @@ UE.plugins['defaultfilter'] = function () {
                     case 'dd':
                         node.tagName = 'li';
                         break;
-                    case 'li':
-                        var className = node.getAttr('class');
-                        if (!className || !/list\-/.test(className)) {
-                            node.setAttr()
-                        }
-                        var tmpNodes = node.getNodesByTagName('ol ul');
-                        UE.utils.each(tmpNodes, function (n) {
-                            node.parentNode.insertAfter(n, node);
-                        });
-                        break;
+                    // case 'li':
+                    //     var className = node.getAttr('class');
+                    //     if (!className || !/list\-/.test(className)) {
+                    //         node.setAttr()
+                    //     }
+                    //     var tmpNodes = node.getNodesByTagName('ol ul');
+                    //     UE.utils.each(tmpNodes, function (n) {
+                    //         node.parentNode.insertAfter(n, node);
+                    //     });
+                    //     break;
                     case 'td':
                     case 'th':
                     case 'caption':
@@ -10152,9 +10153,9 @@ UE.plugins['defaultfilter'] = function () {
                 if (me.options.autoClearEmptyNode && dtd.$inline[node.tagName] && !dtd.$empty[node.tagName] && (!node.attrs || utils.isEmptyObject(node.attrs))) {
 
                     if (!node.firstChild()) node.parentNode.removeChild(node);
-                    else if (node.tagName == 'span' && (!node.attrs || utils.isEmptyObject(node.attrs))) {
-                        node.parentNode.removeChild(node, true)
-                    }
+                    // else if (node.tagName == 'span' && (!node.attrs || utils.isEmptyObject(node.attrs))) {
+                    //     node.parentNode.removeChild(node, true)
+                    // }
                     return;
                 }
                 switch (node.tagName) {
@@ -12673,7 +12674,7 @@ UE.plugins['paragraph'] = function() {
                         } );
                     }
                     tmpRange.setEndAfter( tmpNode );
-                    
+
                     para = range.document.createElement( style );
                     if(attrs){
                         domUtils.setAttributes(para,attrs);
@@ -12685,7 +12686,7 @@ UE.plugins['paragraph'] = function() {
                     //需要内容占位
                     if(domUtils.isEmptyNode(para)){
                         domUtils.fillChar(range.document,para);
-                        
+
                     }
 
                     tmpRange.insertNode( para );
@@ -12809,7 +12810,7 @@ UE.plugins['paragraph'] = function() {
 
         },
         doDirectionality = function(range,editor,forward){
-            
+
             var bookmark,
                 filterFn = function( node ) {
                     return   node.nodeType == 1 ? !domUtils.isBookmarkNode(node) : !domUtils.isWhitespace(node);
@@ -15017,42 +15018,42 @@ UE.plugins['list'] = function () {
                 }
                 customCss.push('ol.custom_'+p+'{list-style:none;}ol.custom_'+p+' li{background-position:0 3px;background-repeat:no-repeat}');
             }
-            switch(p){
-                case 'cn':
-                    customCss.push('li.list-'+p+'-paddingleft-1{padding-left:25px}');
-                    customCss.push('li.list-'+p+'-paddingleft-2{padding-left:40px}');
-                    customCss.push('li.list-'+p+'-paddingleft-3{padding-left:55px}');
-                    break;
-                case 'cn1':
-                    customCss.push('li.list-'+p+'-paddingleft-1{padding-left:30px}');
-                    customCss.push('li.list-'+p+'-paddingleft-2{padding-left:40px}');
-                    customCss.push('li.list-'+p+'-paddingleft-3{padding-left:55px}');
-                    break;
-                case 'cn2':
-                    customCss.push('li.list-'+p+'-paddingleft-1{padding-left:40px}');
-                    customCss.push('li.list-'+p+'-paddingleft-2{padding-left:55px}');
-                    customCss.push('li.list-'+p+'-paddingleft-3{padding-left:68px}');
-                    break;
-                case 'num':
-                case 'num1':
-                    customCss.push('li.list-'+p+'-paddingleft-1{padding-left:25px}');
-                    break;
-                case 'num2':
-                    customCss.push('li.list-'+p+'-paddingleft-1{padding-left:35px}');
-                    customCss.push('li.list-'+p+'-paddingleft-2{padding-left:40px}');
-                    break;
-                case 'dash':
-                    customCss.push('li.list-'+p+'-paddingleft{padding-left:35px}');
-                    break;
-                case 'dot':
-                    customCss.push('li.list-'+p+'-paddingleft{padding-left:20px}');
-            }
+            // switch(p){
+            //     case 'cn':
+            //         customCss.push('li.list-'+p+'-paddingleft-1{padding-left:25px}');
+            //         customCss.push('li.list-'+p+'-paddingleft-2{padding-left:40px}');
+            //         customCss.push('li.list-'+p+'-paddingleft-3{padding-left:55px}');
+            //         break;
+            //     case 'cn1':
+            //         customCss.push('li.list-'+p+'-paddingleft-1{padding-left:30px}');
+            //         customCss.push('li.list-'+p+'-paddingleft-2{padding-left:40px}');
+            //         customCss.push('li.list-'+p+'-paddingleft-3{padding-left:55px}');
+            //         break;
+            //     case 'cn2':
+            //         customCss.push('li.list-'+p+'-paddingleft-1{padding-left:40px}');
+            //         customCss.push('li.list-'+p+'-paddingleft-2{padding-left:55px}');
+            //         customCss.push('li.list-'+p+'-paddingleft-3{padding-left:68px}');
+            //         break;
+            //     case 'num':
+            //     case 'num1':
+            //         customCss.push('li.list-'+p+'-paddingleft-1{padding-left:25px}');
+            //         break;
+            //     case 'num2':
+            //         customCss.push('li.list-'+p+'-paddingleft-1{padding-left:35px}');
+            //         customCss.push('li.list-'+p+'-paddingleft-2{padding-left:40px}');
+            //         break;
+            //     case 'dash':
+            //         customCss.push('li.list-'+p+'-paddingleft{padding-left:35px}');
+            //         break;
+            //     case 'dot':
+            //         customCss.push('li.list-'+p+'-paddingleft{padding-left:20px}');
+            // }
         }
-        customCss.push('.list-paddingleft-1{padding-left:0}');
-        customCss.push('.list-paddingleft-2{padding-left:'+me.options.listDefaultPaddingLeft+'px}');
-        customCss.push('.list-paddingleft-3{padding-left:'+me.options.listDefaultPaddingLeft*2+'px}');
+        // customCss.push('.list-paddingleft-1{padding-left:0}');
+        // customCss.push('.list-paddingleft-2{padding-left:'+me.options.listDefaultPaddingLeft+'px}');
+        // customCss.push('.list-paddingleft-3{padding-left:'+me.options.listDefaultPaddingLeft*2+'px}');
         //如果不给宽度会在自定应样式里出现滚动条
-        utils.cssRule('list', 'ol,ul{margin:0;pading:0;'+(browser.ie ? '' : 'width:95%')+'}li{clear:both;}'+customCss.join('\n'), me.document);
+        // utils.cssRule('list', 'ol,ul{margin:0;pading:0;'+(browser.ie ? '' : 'width:95%')+'}li{clear:both;}'+customCss.join('\n'), me.document);
     });
     //单独处理剪切的问题
     me.ready(function(){
@@ -15318,9 +15319,9 @@ UE.plugins['list'] = function () {
 
             var style = domUtils.getStyle(node, 'list-style-type');
             style && (node.style.cssText = 'list-style-type:' + style);
-            node.className = utils.trim(node.className.replace(/list-paddingleft-\w+/,'')) + ' list-paddingleft-' + type;
+            // node.className = utils.trim(node.className.replace(/list-paddingleft-\w+/,'')) + ' list-paddingleft-' + type;
             utils.each(domUtils.getElementsByTagName(node,'li'),function(li){
-                li.style.cssText && (li.style.cssText = '');
+                // li.style.cssText && (li.style.cssText = '');
                 if(!li.firstChild){
                     domUtils.remove(li);
                     return;
@@ -22731,7 +22732,7 @@ UE.plugins['formatmatch'] = function(){
      });
 
     function addList(type,evt){
-        
+
         if(browser.webkit){
             var target = evt.target.tagName == 'IMG' ? evt.target : null;
         }
@@ -22797,7 +22798,7 @@ UE.plugins['formatmatch'] = function(){
 
     me.commands['formatmatch'] = {
         execCommand : function( cmdName ) {
-          
+
             if(flag){
                 flag = 0;
                 list = [];
@@ -22806,7 +22807,7 @@ UE.plugins['formatmatch'] = function(){
             }
 
 
-              
+
             var range = me.selection.getRange();
             img = range.getClosedNode();
             if(!img || img.tagName != 'IMG'){
@@ -25245,7 +25246,7 @@ UE.ui = baidu.editor.ui = {};
         domUtils = baidu.editor.dom.domUtils,
         UIBase = baidu.editor.ui.UIBase,
         uiUtils = baidu.editor.ui.uiUtils;
-    
+
     var Mask = baidu.editor.ui.Mask = function (options){
         this.initOptions(options);
         this.initUIBase();
@@ -25541,7 +25542,7 @@ UE.ui = baidu.editor.ui = {};
         }
     };
     utils.inherits(Popup, UIBase);
-    
+
     domUtils.on( document, 'mousedown', function ( evt ) {
         var el = evt.target || evt.srcElement;
         closeAllPopup( evt,el );
@@ -25637,7 +25638,7 @@ UE.ui = baidu.editor.ui = {};
     var utils = baidu.editor.utils,
         uiUtils = baidu.editor.ui.uiUtils,
         UIBase = baidu.editor.ui.UIBase;
-    
+
     var TablePicker = baidu.editor.ui.TablePicker = function (options){
         this.initOptions(options);
         this.initTablePicker();
@@ -25721,7 +25722,7 @@ UE.ui = baidu.editor.ui = {};
     var browser = baidu.editor.browser,
         domUtils = baidu.editor.dom.domUtils,
         uiUtils = baidu.editor.ui.uiUtils;
-    
+
     var TPL_STATEFUL = 'onmousedown="$$.Stateful_onMouseDown(event, this);"' +
         ' onmouseup="$$.Stateful_onMouseUp(event, this);"' +
         ( browser.ie ? (
@@ -25730,7 +25731,7 @@ UE.ui = baidu.editor.ui = {};
         : (
         ' onmouseover="$$.Stateful_onMouseOver(event, this);"' +
         ' onmouseout="$$.Stateful_onMouseOut(event, this);"' ));
-    
+
     baidu.editor.ui.Stateful = {
         alwalysHoverable: false,
         target:null,//目标元素和this指向dom不一样
@@ -27355,7 +27356,7 @@ UE.ui = baidu.editor.ui = {};
         setValue : function(value){
             this._value = value;
         }
-        
+
     };
     utils.inherits(MenuButton, SplitButton);
 })();
@@ -28985,7 +28986,7 @@ UE.ui = baidu.editor.ui = {};
             //     }
             // });
 
-            
+
             for(var key in UE._customizeUI){
                 var obj = UE._customizeUI[key]
                 var itemUI,index;

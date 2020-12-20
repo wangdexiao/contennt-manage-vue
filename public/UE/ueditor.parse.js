@@ -923,11 +923,11 @@ UE.parse.register('list',function(utils){
     }
 
     if(ols.length || uls.length){
-        customCss.push(selector +' .list-paddingleft-1{padding-left:0}');
-        customCss.push(selector +' .list-paddingleft-2{padding-left:'+ this.listDefaultPaddingLeft+'px}');
-        customCss.push(selector +' .list-paddingleft-3{padding-left:'+ this.listDefaultPaddingLeft*2+'px}');
+        // customCss.push(selector +' .list-paddingleft-1{padding-left:0}');
+        // customCss.push(selector +' .list-paddingleft-2{padding-left:'+ this.listDefaultPaddingLeft+'px}');
+        // customCss.push(selector +' .list-paddingleft-3{padding-left:'+ this.listDefaultPaddingLeft*2+'px}');
 
-        utils.cssRule('list', selector +' ol,'+selector +' ul{margin:0;padding:0;}li{clear:both;}'+customCss.join('\n'), document);
+        // utils.cssRule('list', selector +' ol,'+selector +' ul{margin:0;padding:0;}li{clear:both;}'+customCss.join('\n'), document);
     }
     function applyStyle(nodes){
         var T = this;
